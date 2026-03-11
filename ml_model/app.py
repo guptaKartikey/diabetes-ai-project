@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-model = pickle.load(open("diabetes_model.sav","rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -28,3 +28,5 @@ def predict():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
+    
