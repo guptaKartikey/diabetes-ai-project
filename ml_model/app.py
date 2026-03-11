@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import pickle
 import numpy as np
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 model = pickle.load(open("model.pkl", "rb"))
 
@@ -22,11 +24,9 @@ def predict():
 
     prediction = model.predict(values)
 
-    result = "Diabetic" if prediction[0]==1 else "Not Diabetic"
+    result = "Diabetic" if prediction[0] == 1 else "Not Diabetic"
 
     return jsonify({"prediction": result})
 
 if __name__ == "__main__":
-    app.run(port=5000)
-
-    
+    app.run(host="0.0.0.0", port=5000)
