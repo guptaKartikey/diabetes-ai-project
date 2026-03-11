@@ -1,0 +1,85 @@
+<div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/2864/2864333.png" alt="Logo" class="logo-icon">
+        <h1 class="brand-name">AI Diabetes Analyzer</h1>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="card-header">
+        <h2>AI-Powered Diabetes Risk Prediction</h2>
+        <p class="subtitle">Enter patient health details and our AI model will analyze the risk of diabetes instantly.</p>
+      </div>
+
+<div class="card">
+
+<h2>Diabetes Prediction</h2>
+
+<form (ngSubmit)="submitForm()">
+
+<div>
+<label>Pregnancies</label>
+<input type="number" [(ngModel)]="formData.pregnancies" name="pregnancies">
+</div>
+
+<div>
+<label>Glucose Level</label>
+<input type="number" [(ngModel)]="formData.glucose" name="glucose">
+</div>
+
+<div>
+<label>Blood Pressure</label>
+<input type="number" [(ngModel)]="formData.blood_pressure" name="bloodPressure">
+</div>
+
+<div>
+<label>Skin Thickness</label>
+<input type="number" [(ngModel)]="formData.skin_thickness" name="skinThickness">
+</div>
+
+<div>
+<label>Insulin</label>
+<input type="number" [(ngModel)]="formData.insulin" name="insulin">
+</div>
+
+<div>
+<label>BMI</label>
+<input type="number" [(ngModel)]="formData.bmi" name="bmi">
+</div>
+
+<div>
+<label>Diabetes Pedigree Function</label>
+<input type="number" [(ngModel)]="formData.dpf" name="dpf">
+</div>
+
+<div>
+<label>Age</label>
+<input type="number" [(ngModel)]="formData.age" name="age">
+</div>
+
+<button type="submit">Predict</button>
+
+</form>
+
+<div *ngIf="result"
+class="result-box"
+[ngClass]="result.prediction === 'Diabetic' ? 'result-danger' : 'result-success'">
+
+{{result.prediction}}
+
+</div>
+
+</div>
+
+<div *ngIf="recommendation" class="recommendation-box">
+
+  <h3>AI Health Recommendation</h3>
+
+  <p style="white-space: pre-line;">
+    {{ recommendation }}
+  </p>
+
+</div>
+
+</div>

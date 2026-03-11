@@ -1,0 +1,186 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background:#f4f7f9;
+  color:#333;
+}
+
+/* MAIN WRAPPER */
+.main-wrapper{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;   /* centers vertically */
+  padding:20px;
+}
+
+/* CONTAINER */
+.container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+}
+
+/* HEADER */
+.header{
+  padding:20px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.logo-container{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:35px;
+  height:35px;
+}
+
+.brand-name{
+  font-size:22px;
+  font-weight:700;
+  color:#2c3e50;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:15px;
+  box-shadow:0 6px 25px rgba(0,0,0,0.08);
+  padding:40px;
+  width:100%;
+}
+
+
+
+.recommendation-box{
+  margin-top:20px;
+  padding:15px;
+  background:#f3f7ff;
+  border-radius:10px;
+}
+
+.recommendation-box h3{
+  color:#2c3e50;
+}
+
+
+/* CARD HEADER */
+.card-header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.card-header h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:#666;
+  font-size:16px;
+}
+
+/* FORM GRID */
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px 30px;
+  margin-top:20px;
+}
+
+/* FIELD CONTAINER */
+form div{
+  display:flex;
+  flex-direction:column;
+}
+
+/* LABEL */
+label{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+/* INPUT */
+input{
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:14px;
+  transition:0.3s;
+}
+
+/* INPUT FOCUS */
+input:focus{
+  border-color:#0a6ebd;
+  outline:none;
+  box-shadow:0 0 6px rgba(10,110,189,0.25);
+}
+
+/* BUTTON */
+button{
+  grid-column:span 2;
+  margin-top:10px;
+  padding:14px;
+  background:#0a6ebd;
+  border:none;
+  border-radius:8px;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#084f8a;
+}
+
+/* RESULT BOX */
+.result-box{
+  margin-top:25px;
+  padding:15px;
+  border-radius:8px;
+  text-align:center;
+  font-size:16px;
+  font-weight:bold;
+}
+
+/* DANGER RESULT */
+.result-danger{
+  background:#ffe5e5;
+  color:#c0392b;
+}
+
+/* SUCCESS RESULT */
+.result-success{
+  background:#e8f8f0;
+  color:#1e8449;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width:700px){
+
+  form{
+    grid-template-columns:1fr;
+  }
+
+  button{
+    grid-column:span 1;
+  }
+
+  .card{
+    padding:25px;
+  }
+
+}
