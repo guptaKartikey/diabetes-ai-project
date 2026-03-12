@@ -1,6 +1,7 @@
 services:
   - type: web
     name: diabetes-backend
+    runtime: docker
     dockerfilePath: Dockerfile
     region: oregon
     envVars:
