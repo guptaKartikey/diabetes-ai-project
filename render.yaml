@@ -1,12 +1,8 @@
 services:
   - type: web
     name: diabetes-backend
-    env: java
+    dockerfilePath: Dockerfile
     region: oregon
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar backend/medical/target/medical-0.0.1-SNAPSHOT.jar
     envVars:
-      - key: JAVA_VERSION
-        value: 17
       - key: PORT
         value: 8080
