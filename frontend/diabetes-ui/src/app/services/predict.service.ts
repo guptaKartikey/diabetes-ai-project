@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PredictService {
-private apiUrl = 'https://diabetes-ai-project-sldx.onrender.com/api/predict';
+  private apiUrl = 'https://diabetes-ai-project-ai.onrender.com/api/predict';
 
   constructor(private http: HttpClient) {}
 

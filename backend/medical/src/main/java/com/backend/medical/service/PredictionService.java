@@ -14,6 +14,14 @@ public class PredictionService {
 
     public String getPrediction(Map<String, Object> data) {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.postForObject(pythonApiUrl, data, String.class);
+        try {
+            Map<?, ?> response = restTemplate.postForObject(pythonApiUrl, data, Map.class);
+            if (response != null && response.containsKey("prediction")) {
+                return response.get("prediction").toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "Unknown";
     }
 }
