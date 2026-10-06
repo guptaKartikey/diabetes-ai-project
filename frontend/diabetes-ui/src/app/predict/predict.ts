@@ -23,25 +23,30 @@ export class Predict {
     age: 0
   };
 
-  result: any;
-   
-
-   recommendation: string = '';
-
-    
+  result: any = null;
+  recommendation: string = '';
+  isLoading: boolean = false;
+  errorMessage: string = '';
 
   constructor(private predictService: PredictService) {}
 
- submitForm() {
-  this.predictService.predict(this.formData).subscribe(res => {
+  submitForm() {
+    this.isLoading = true;
+    this.errorMessage = '';
+    this.result = null;
+    this.recommendation = '';
 
-     this.result = { prediction: res.prediction };
-
-
-      // store recommendation from backend
-      this.recommendation = res.recommendation;
-
-
-  });
-}
+    this.predictService.predict(this.formData).subscribe({
+      next: (res: any) => {
+        this.isLoading = false;
+        this.result = { prediction: res.prediction };
+        this.recommendation = res.recommendation;
+      },
+      error: (err: any) => {
+        this.isLoading = false;
+        this.errorMessage = 'Error connecting to backend service. Please check your connection or wait a moment for the server to wake up.';
+        console.error('Prediction error:', err);
+      }
+    });
+  }
 }
